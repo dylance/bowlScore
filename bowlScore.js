@@ -1,15 +1,9 @@
 function bowlingScore(frames) {
-  // Figure out the score
   // sample input
-//  '17 60 6/ 80 32 52 17 0/ X 12'
-
-//  '00 00 00 00 00 00 00 00 X 0/X'));
-  // woah! Perfect game!
-//  X X X X X X X X X XX1ty'));
-
+  //'17 60 6/ 80 32 52 17 0/ X 12'
+  //'00 00 00 00 00 00 00 00 X 0/X'
+  //'X X X X X X X X X XXX'
   //'1/ 11 11 11 1/ 51 11 11 11 11'
-
-  //console.log(frames)
   var s = frames.split(' ');  // creates array with index for each frame
   var sum = 0;
 
@@ -32,7 +26,7 @@ function bowlingScore(frames) {
             else if (s[9][1] == '/')
               sum += 20
             else
-              sum += Number(s[9][0]) + Number(s[9][1])
+              sum += 10 + Number(s[9][0]) + Number(s[9][1])
           }
           else if (s[i+1] == 'X' && s[i+2][0] == 'X')
             sum += 30;
@@ -69,13 +63,12 @@ function bowlingScore(frames) {
     }
   return sum;
 }
-
-
+// sample input and output
 console.log(bowlingScore('17 60 6/ 80 32 52 17 0/ X 12'));
-
+// 96
 console.log(bowlingScore('00 00 00 00 00 00 00 00 X 0/X'));
-// woah! Perfect game!
+// 40
 console.log(bowlingScore('X X X X X X X X X XXX'));
-
+// 300
 console.log(bowlingScore('1/ 11 11 11 1/ 51 11 11 11 11'));
-/// 16 X 02 90 90 X 26 90 70 XX1 should be a 102 - Expected: 102, instead got: 81
+// 46
